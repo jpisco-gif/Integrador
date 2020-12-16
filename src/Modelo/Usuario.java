@@ -1,0 +1,80 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Modelo;
+
+/**
+ *
+ * @author Javier Pisco
+ */
+public class Usuario {
+
+    int idU;
+    String nombre;
+    String usuario;
+    String clave;
+    String perfil;
+    String estado;
+
+    public Usuario() {
+    }
+
+    public Usuario(int idU, String nombre, String usuario, String clave, String perfil, String estado) {
+        this.idU = idU;
+        this.nombre = nombre;
+        this.usuario = usuario;
+        this.clave = clave;
+        this.perfil = perfil;
+        this.estado = estado;
+    }
+
+    public int getIdU() {
+        return idU;
+    }
+
+    public void setIdU(int idU) {
+        this.idU = idU;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
+    }
+
+    public String getEstado() {
+        return perfil;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+}
