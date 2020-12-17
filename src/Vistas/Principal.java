@@ -1,13 +1,24 @@
 package Vistas;
 
+import Modelo.Usuario;
+
 public class Principal extends javax.swing.JFrame {
-    
+    Usuario mod;
     public Principal() {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
-
+//public Principal(Usuario mod){
+//    this.mod=mod;
+//    if ("Administrador".equals(mod.getPerfil())) {
+//        
+//    }  else if ("Vendedor".equals(mod.getPerfil())) {
+//         menu1.setVisible(false);
+//        menu5.setVisible(false);
+//    } 
+//    
+//}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,8 +38,9 @@ public class Principal extends javax.swing.JFrame {
         RealizarCons = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         GenerarVent = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
+        menu5 = new javax.swing.JMenu();
         ReportsVentas = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,13 +111,26 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/i3.png"))); // NOI18N
-        jMenu5.setText("Reportes");
+        menu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/i3.png"))); // NOI18N
+        menu5.setText("Reportes");
 
         ReportsVentas.setText("Reportes de ventas");
-        jMenu5.add(ReportsVentas);
+        ReportsVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReportsVentasActionPerformed(evt);
+            }
+        });
+        menu5.add(ReportsVentas);
 
-        jMenuBar1.add(jMenu5);
+        jMenuItem1.setText("Reportes por usuario");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menu5.add(jMenuItem1);
+
+        jMenuBar1.add(menu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -154,6 +179,18 @@ public class Principal extends javax.swing.JFrame {
         cf.setVisible(true);
     }//GEN-LAST:event_GenerarVentActionPerformed
 
+    private void ReportsVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportsVentasActionPerformed
+      ReportMes rp=new ReportMes();
+      escritorio.add(rp);
+      rp.setVisible(true);
+    }//GEN-LAST:event_ReportsVentasActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        ReportCuenta rc=new ReportCuenta();
+        escritorio.add(rc);
+        rc.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -198,11 +235,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem ReportsVentas;
     public static javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu menu1;
     private javax.swing.JMenu menu2;
     private javax.swing.JMenu menu3;
+    private javax.swing.JMenu menu5;
     // End of variables declaration//GEN-END:variables
 
 }

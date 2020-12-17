@@ -90,7 +90,7 @@ public class Voucher extends javax.swing.JFrame {
             try {
                 job.print();
             } catch (PrinterException ex) {
-                Logger.getLogger(Voucherv.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Voucher.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
             JOptionPane.showMessageDialog(this, "La impresion se cancelo");

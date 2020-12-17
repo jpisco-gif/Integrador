@@ -32,7 +32,6 @@ public class Venta extends javax.swing.JInternalFrame {
     Cliente cliente = new Cliente();
 //    DefaultTableModel model = new DefaultTableModel();
     public static DefaultTableModel model;
-    Voucherv vou = new Voucherv();
     int idp;
     double totalp;
 
@@ -412,6 +411,7 @@ public class Venta extends javax.swing.JInternalFrame {
                 int r = JOptionPane.showConfirmDialog(this, "Cliente no registrado, ¿Desea registrarlo?");
                 if (r == JOptionPane.YES_OPTION) {
                     Clientes cf = new Clientes();
+                    Principal.escritorio.add(cf);
                     cf.setVisible(true);
 
                 } else {
