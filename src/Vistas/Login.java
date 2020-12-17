@@ -142,9 +142,10 @@ public class Login extends javax.swing.JFrame {
            mod.setClave(txtclave.getText());
            
             if (modsql.login(mod)) {
-                Principal frmprincipal=new Principal();
-                frmprincipal.setVisible(true);
                 this.setVisible(false);
+                Principal frmprincipal=new Principal(mod);
+                frmprincipal.setVisible(true);
+                
                 
             } else {
                 JOptionPane.showMessageDialog(null, "Datos incorrectos");

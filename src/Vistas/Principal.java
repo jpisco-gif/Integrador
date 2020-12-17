@@ -3,22 +3,28 @@ package Vistas;
 import Modelo.Usuario;
 
 public class Principal extends javax.swing.JFrame {
+
     Usuario mod;
+
     public Principal() {
         initComponents();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
-//public Principal(Usuario mod){
-//    this.mod=mod;
-//    if ("Administrador".equals(mod.getPerfil())) {
-//        
-//    }  else if ("Vendedor".equals(mod.getPerfil())) {
-//         menu1.setVisible(false);
-//        menu5.setVisible(false);
-//    } 
-//    
-//}
+
+    public Principal(Usuario mod) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.mod = mod;
+        if ("Administrador".equals(mod.getPerfil())){
+        
+    }  else if ("Vendedor".equals(mod.getPerfil())) {
+         menu1.setVisible(false);
+        menu5.setVisible(false);
+    }
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -169,7 +175,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void RealizarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RealizarConsActionPerformed
         Consulta c = new Consulta();
-       escritorio.add(c);
+        escritorio.add(c);
         c.setVisible(true);
     }//GEN-LAST:event_RealizarConsActionPerformed
 
@@ -180,13 +186,13 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_GenerarVentActionPerformed
 
     private void ReportsVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportsVentasActionPerformed
-      ReportMes rp=new ReportMes();
-      escritorio.add(rp);
-      rp.setVisible(true);
+        ReportMes rp = new ReportMes();
+        escritorio.add(rp);
+        rp.setVisible(true);
     }//GEN-LAST:event_ReportsVentasActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        ReportCuenta rc=new ReportCuenta();
+        ReportCuenta rc = new ReportCuenta();
         escritorio.add(rc);
         rc.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
