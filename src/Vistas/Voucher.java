@@ -22,6 +22,7 @@ public class Voucher extends javax.swing.JFrame {
      */
     public Voucher() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

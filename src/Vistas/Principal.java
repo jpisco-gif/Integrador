@@ -1,6 +1,11 @@
 package Vistas;
 
 import Modelo.Usuario;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
 
@@ -9,19 +14,20 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         initComponents();
         this.setVisible(true);
-        this.setLocationRelativeTo(null);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        cerrar();
     }
 
     public Principal(Usuario mod) {
         initComponents();
-        this.setLocationRelativeTo(null);
+        this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.mod = mod;
-        if ("Administrador".equals(mod.getPerfil())){
-        
-    }  else if ("Vendedor".equals(mod.getPerfil())) {
-         menu1.setVisible(false);
-        menu5.setVisible(false);
-    }
+        if ("Administrador".equals(mod.getPerfil())) {
+
+        } else if ("Vendedor".equals(mod.getPerfil())) {
+            menu1.setVisible(false);
+            menu5.setVisible(false);
+        }
 
     }
 
@@ -159,79 +165,85 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public void cerrar() {
+        try {
+            this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            addWindowListener(new WindowAdapter() {
+                public void windowClosing(WindowEvent e) {
+                    confirmarsalida();
 
+                }
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void confirmarsalida() {
+        int valor = JOptionPane.showConfirmDialog(this, "¿Estas seguro de cerrar la aplicacion?", "Advertencia", JOptionPane.YES_NO_OPTION);
+        if (valor == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "Cerrando sesion", "Cerrando", JOptionPane.INFORMATION_MESSAGE);
+            Login l = new Login();
+            this.dispose();
+            l.setVisible(true);
+        }
+    }
+
+    public void centrar(JInternalFrame internalFrame) {
+        int x = (escritorio.getWidth() / 2) - internalFrame.getWidth() / 2;
+        int y = (escritorio.getHeight() / 2) - internalFrame.getHeight() / 2;
+        if (internalFrame.isShowing()) {
+            internalFrame.setLocation(x, y);
+        } else {
+            escritorio.add(internalFrame);
+            internalFrame.setLocation(x, y);
+            internalFrame.show();
+        }
+    }
     private void IngresoProducActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresoProducActionPerformed
         Producto p = new Producto();
-        escritorio.add(p);
-        p.setVisible(true);
+
+        this.escritorio.removeAll();
+        this.escritorio.repaint();
+        centrar(p);
 
     }//GEN-LAST:event_IngresoProducActionPerformed
 
     private void AdmUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdmUsuarioActionPerformed
         UsuarioV u = new UsuarioV();
-        escritorio.add(u);
-        u.setVisible(true);
+        this.escritorio.removeAll();
+        this.escritorio.repaint();
+        centrar(u);
     }//GEN-LAST:event_AdmUsuarioActionPerformed
 
     private void RealizarConsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RealizarConsActionPerformed
         Consulta c = new Consulta();
-        escritorio.add(c);
-        c.setVisible(true);
+        this.escritorio.removeAll();
+        this.escritorio.repaint();
+        centrar(c);
     }//GEN-LAST:event_RealizarConsActionPerformed
 
     private void GenerarVentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarVentActionPerformed
         Venta cf = new Venta();
-        escritorio.add(cf);
-        cf.setVisible(true);
+        this.escritorio.removeAll();
+        this.escritorio.repaint();
+        centrar(cf);
     }//GEN-LAST:event_GenerarVentActionPerformed
 
     private void ReportsVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportsVentasActionPerformed
         ReportMes rp = new ReportMes();
-        escritorio.add(rp);
-        rp.setVisible(true);
+        this.escritorio.removeAll();
+        this.escritorio.repaint();
+        centrar(rp);
     }//GEN-LAST:event_ReportsVentasActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         ReportCuenta rc = new ReportCuenta();
-        escritorio.add(rc);
-        rc.setVisible(true);
+        this.escritorio.removeAll();
+        this.escritorio.repaint();
+        centrar(rc);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AdmUsuario;

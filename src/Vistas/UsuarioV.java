@@ -53,6 +53,9 @@ public class UsuarioV extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setTitle("Ingreso de Usuario");
+
         txtnombreU.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtnombreUKeyTyped(evt);

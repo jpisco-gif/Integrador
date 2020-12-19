@@ -49,6 +49,9 @@ public class Consulta extends javax.swing.JInternalFrame {
         btnbuscar = new javax.swing.JToggleButton();
         jLabel2 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setTitle("Consulta de Productos");
+
         tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},

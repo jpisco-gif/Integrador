@@ -7,8 +7,10 @@ package Vistas;
 
 import Modelo.Reportes;
 import ModeloDao.ReportesDao;
+import Reportes.clsExportarExcel;
 import java.util.List;
-import javax.swing.JPanel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Javier Pisco
  */
 public class ReportMes extends javax.swing.JInternalFrame {
-
+clsExportarExcel obj;
     DefaultTableModel modelMes = new DefaultTableModel();
 
     ReportesDao rdao = new ReportesDao();
@@ -54,6 +56,9 @@ public class ReportMes extends javax.swing.JInternalFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         jButton1 = new javax.swing.JButton();
 
+        setClosable(true);
+        setTitle("Reportes por Mes");
+
         btnMes.setText("Consultar");
         btnMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +84,11 @@ public class ReportMes extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tbMes);
 
         jToggleButton1.setText("Exportar a Excel");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Volver a consultar totales");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -182,6 +192,15 @@ void anterior() {
         anterior();
         listaTotal();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        try {
+            obj = new clsExportarExcel();
+            obj.exportarExcel(tbMes);
+        } catch (Exception ex) {
+            Logger.getLogger(ReportMes.class.getName()).log(Level.SEVERE, null,ex);
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

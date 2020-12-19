@@ -97,6 +97,9 @@ public class Venta extends javax.swing.JInternalFrame {
         txtTotalPago = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setTitle("Generar Venta");
+
         jLabel4.setText("Cod. cliente");
 
         jLabel5.setText("Cod. Producto");
@@ -133,6 +136,8 @@ public class Venta extends javax.swing.JInternalFrame {
         jLabel10.setText("Stock:");
 
         jLabel11.setText("Vendedor:");
+
+        txtVendedor.setText("marin");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -233,7 +238,7 @@ public class Venta extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel11)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         jLabel1.setText("PUNTO DE VENTA");
@@ -362,7 +367,7 @@ public class Venta extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                .addGap(8, 8, 8))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

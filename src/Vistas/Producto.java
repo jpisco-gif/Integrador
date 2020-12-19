@@ -69,6 +69,9 @@ public class Producto extends javax.swing.JInternalFrame {
         btnlimpiar = new javax.swing.JButton();
         btnregresar = new javax.swing.JButton();
 
+        setClosable(true);
+        setTitle("Ingreso de productos");
+
         btnbuscar.setText("Buscar");
         btnbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

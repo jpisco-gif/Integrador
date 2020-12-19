@@ -49,6 +49,9 @@ public class ReportCuenta extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JToggleButton();
 
+        setClosable(true);
+        setTitle("Reportes por cuenta");
+
         tbCuenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
