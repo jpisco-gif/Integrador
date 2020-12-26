@@ -28,7 +28,7 @@ public class Principal extends javax.swing.JFrame {
             menu1.setVisible(false);
             menu5.setVisible(false);
         }
-
+        cerrar();
     }
 
     /**
